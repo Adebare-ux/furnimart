@@ -1,4 +1,6 @@
 import Button from "../../components/Button";
+import ChairCard from "./components/Card";
+import { chairs } from "./data";
 
 const Home = () => {
   return (
@@ -15,51 +17,9 @@ const Home = () => {
       </div>
 
       <div className="grid [grid-template-columns:repeat(auto-fill,minmax(200px,1fr))] gap-5 justify-center items-center m-5">
-        <div className="shadow-md flex flex-col items-center text-center w-4/5 m-2.5">
-          <img src="/1.jpg" alt="Leather Chair" className="w-4/5" />
-          <p>
-            <strong>Leather Chair</strong>
-          </p>
-          <p className="price">$50.00</p>
-          <Button className="btn !bg-green-800">Add to Cart</Button>
-        </div>
-
-        <div className="shadow-md flex flex-col items-center text-center w-4/5 m-2.5">
-          <img src="/2.jpg" alt="Modern Chair" className="w-4/5" />
-          <p>
-            <strong>Modern Chair</strong>
-          </p>
-          <p className="price">$90.00</p>
-          <Button className="btn !bg-green-800">Add to Cart</Button>
-        </div>
-
-        <div className="shadow-md flex flex-col items-center text-center w-4/5 m-2.5">
-          <img src="/3.jpg" alt="Castle Ray Chair" className="w-4/5" />
-          <p>
-            <strong>Castle Ray Chair</strong>
-          </p>
-          <p className="price">$80.00</p>
-          <Button className="btn !bg-green-800">Add to Cart</Button>
-        </div>
-
-        <div className="shadow-md flex flex-col items-center text-center w-4/5 m-2.5">
-          <img src="/4.jpg" alt="Leatherette Chair" className="w-4/5" />
-          <p>
-            <strong>Leatherette Chair</strong>
-          </p>
-          <p className="price">$100.00</p>
-          <Button className="btn !bg-green-800">Add to Cart</Button>
-        </div>
-
-        <div className="shadow-md flex flex-col items-center text-center w-4/5 m-2.5">
-          <img src="/5.jpg" alt="Two Legged Chair" className="w-4/5" />
-
-          <p>
-            <strong>Two Legged Chair</strong>
-          </p>
-          <p className="price">$120.00</p>
-          <Button className="btn !bg-green-800">Add to Cart</Button>
-        </div>
+        {chairs.map((chair, index) => {
+          return <ChairCard key={index} {...chair} />;
+        })}
       </div>
     </>
   );
